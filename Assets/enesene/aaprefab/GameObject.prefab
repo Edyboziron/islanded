@@ -1,0 +1,276 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4652487604832492963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518447312595874956}
+  - component: {fileID: 7105882649105525931}
+  - component: {fileID: 7658070727690039056}
+  - component: {fileID: 2813106878015366963}
+  - component: {fileID: 5673897225934126367}
+  - component: {fileID: 6148184177166200969}
+  - component: {fileID: 7416968201231146191}
+  - component: {fileID: 15030307241996811}
+  - component: {fileID: 582698136954235767}
+  - component: {fileID: 7188304660165958937}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518447312595874956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3609695, y: 10.341482, z: -0.39352894}
+  m_LocalScale: {x: 1, y: 1, z: 0.26}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7105882649105525931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 3498243535571927814, guid: 60c07e6c257ce1949ad23b832d5ea4ec, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 300
+  spawnChance: 71.3
+  maxSlopeAngle: 10
+  minScaleMultiplier: 0.6
+  maxScaleMultiplier: 1.7
+  embedDepth: 0.1
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &7658070727690039056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 3423240216552991933, guid: 7356dc0cc04c0b54dab0e2d40681dc30, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 300
+  spawnChance: 61.9
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.8
+  maxScaleMultiplier: 1.5
+  embedDepth: 0
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &2813106878015366963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 8223810052478723578, guid: ff4fe308ce266ae4d9f6d8a6777742b3, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 300
+  spawnChance: 48.5
+  maxSlopeAngle: 45
+  minScaleMultiplier: 25
+  maxScaleMultiplier: 30
+  embedDepth: -0.03
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &5673897225934126367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 3493127077732444759, guid: a1a8d722f655d92428b9304498ed24ce, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 300
+  spawnChance: 48.5
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.1
+  maxScaleMultiplier: 0.12
+  embedDepth: 0
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &6148184177166200969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 4815825779417000446, guid: 0938845c1f21a4e449794efe5490711e, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 200
+  spawnChance: 60
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.05
+  maxScaleMultiplier: 0.06
+  embedDepth: 0.01
+  alignYAxisUp: 1
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &7416968201231146191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 6852256759506802037, guid: 6a7c2abeae4e7fc42ac97454fb606747, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 300
+  spawnChance: 61.9
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.3
+  maxScaleMultiplier: 0.4
+  embedDepth: -0.01
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &15030307241996811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Untagged
+  targetSurface: {fileID: 0}
+  prefabToSpawn: {fileID: 7526729165798608987, guid: 4bee9bf24f8089b47b21f8b708062216, type: 3}
+  spawnExactlyOnePerSurface: 0
+  attemptCount: 10
+  spawnChance: 48.9
+  maxSlopeAngle: 12.2
+  minScaleMultiplier: 0.2
+  maxScaleMultiplier: 0.4
+  embedDepth: 0
+  alignYAxisUp: 0
+  isLowPriority: 0
+  spawnDelay: 0.1
+--- !u!114 &582698136954235767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 1
+  surfaceTag: Tarla
+  targetSurface: {fileID: 8794260232103719203, guid: 4bee9bf24f8089b47b21f8b708062216, type: 3}
+  prefabToSpawn: {fileID: 276499563153064211, guid: cb710c1cbe279b042bc65c8c09d240f6, type: 3}
+  spawnExactlyOnePerSurface: 1
+  attemptCount: 10
+  spawnChance: 100
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.6
+  maxScaleMultiplier: 1
+  embedDepth: -0.15
+  alignYAxisUp: 0
+  isLowPriority: 1
+  spawnDelay: 0.5
+--- !u!114 &7188304660165958937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652487604832492963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff411d8791408b74d8f4bf1facdfdd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTagSearch: 0
+  surfaceTag: Tarla
+  targetSurface: {fileID: 8794260232103719203, guid: 4bee9bf24f8089b47b21f8b708062216, type: 3}
+  prefabToSpawn: {fileID: 6918400503282859706, guid: 4f039837b0944c94aa3aa7628dbf8f6c, type: 3}
+  spawnExactlyOnePerSurface: 1
+  attemptCount: 10
+  spawnChance: 100
+  maxSlopeAngle: 45
+  minScaleMultiplier: 0.6
+  maxScaleMultiplier: 1
+  embedDepth: -0.15
+  alignYAxisUp: 0
+  isLowPriority: 1
+  spawnDelay: 0.5
