@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using StarterAssets;
@@ -44,7 +44,7 @@ public class SurvivalManager : MonoBehaviour
     private bool isWarningPlaying = false;
 
     private bool isInSafeZone = false;
-    private bool isNearShip = false; // YENÝ: Geminin yanýndayken bunu true yapacaðýz
+    private bool isNearShip = false; // YENÄ°: Geminin yanÄ±ndayken bunu true yapacaÄŸÄ±z
     private bool isTimeFrozen = false;
     private float freezeTimer = 0f;
     private float originalMoveSpeed;
@@ -106,8 +106,8 @@ public class SurvivalManager : MonoBehaviour
 
         if (isDead) return;
 
-        // --- IÞINLANMA BUG'ININ ÇÖZÜMÜ ---
-        // Tuþ kontrolünü Update içine aldýk ki asla kaçýrmasýn!
+        // --- IÅžINLANMA BUG'ININ Ã‡Ã–ZÃœMÃœ ---
+        // TuÅŸ kontrolÃ¼nÃ¼ Update iÃ§ine aldÄ±k ki asla kaÃ§Ä±rmasÄ±n!
         if (isNearShip && !isInSafeZone)
         {
             if (Keyboard.current.eKey.wasPressedThisFrame)
@@ -280,7 +280,7 @@ public class SurvivalManager : MonoBehaviour
         }
     }
 
-    // --- YENÝ EKLENEN TETÝKLEYÝCÝLER (Artýk OnTriggerStay kullanmýyoruz) ---
+    // --- YENÄ° EKLENEN TETÄ°KLEYÄ°CÄ°LER (ArtÄ±k OnTriggerStay kullanmÄ±yoruz) ---
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SafeZone") && !isDead)
@@ -309,7 +309,7 @@ public class SurvivalManager : MonoBehaviour
         if (_characterController != null) _characterController.enabled = true;
 
         isInSafeZone = true;
-        isNearShip = false; // Ýçeri girdiðimiz için bunu kapatýyoruz
+        isNearShip = false; // Ä°Ã§eri girdiÄŸimiz iÃ§in bunu kapatÄ±yoruz
 
         if (pressEPanel != null) pressEPanel.SetActive(false);
         if (ShipManager.Instance != null) ShipManager.Instance.NextDay();

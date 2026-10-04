@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Can Ayarları")]
+    [Header("Can AyarlarÄ±")]
     public float maxHealth = 100f;
     public float currentHealth;
 
-    [Header("UI Elemanları")]
-    public Slider healthSlider;        // Canvas'taki Slider'ı buraya atayacağız
-    public TextMeshProUGUI healthText; // İsteğe bağlı sayısal gösterge
+    [Header("UI ElemanlarÄ±")]
+    public Slider healthSlider;        // Canvas'taki Slider'Ä± buraya atayacaÄŸÄ±z
+    public TextMeshProUGUI healthText; // Ä°steÄŸe baÄŸlÄ± sayÄ±sal gÃ¶sterge
 
     private bool isDead = false;
 
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
 
-        // UI Başlangıç ayarları
+        // UI BaÅŸlangÄ±Ã§ ayarlarÄ±
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
@@ -27,13 +27,13 @@ public class PlayerHealth : MonoBehaviour
         UpdateUI();
     }
 
-    // Hasar alma fonksiyonu (Bakteriler bu fonksiyonu çağıracak)
+    // Hasar alma fonksiyonu (Bakteriler bu fonksiyonu Ã§aÄŸÄ±racak)
     public void TakeDamage(float damage)
     {
         if (isDead) return;
 
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Canın 0-100 arasında kalmasını sağlar
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // CanÄ±n 0-100 arasÄ±nda kalmasÄ±nÄ± saÄŸlar
 
         UpdateUI();
 
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Can doldurma fonksiyonu (İlerde lazım olur)
+    // Can doldurma fonksiyonu (Ä°lerde lazÄ±m olur)
     public void Heal(float amount)
     {
         currentHealth += amount;
@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
-        Debug.Log("Robot parçalandı! Oyun bitti.");
-        // Buraya ölüm animasyonu veya yeniden başlatma ekranı gelebilir
+        Debug.Log("Robot parÃ§alandÄ±! Oyun bitti.");
+        // Buraya Ã¶lÃ¼m animasyonu veya yeniden baÅŸlatma ekranÄ± gelebilir
     }
 }

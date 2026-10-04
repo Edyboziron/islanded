@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
 public class CollectibleItem : MonoBehaviour
 {
-    [Header("Eþya Ayarlarý")]
+    [Header("EÅŸya AyarlarÄ±")]
     public string itemType = "Mantar";
     public int amount = 1;
     public float interactionRange = 3f;
     public Color highlightColor = Color.yellow;
 
-    [Header("Ses Ayarlarý")]
-    public AudioClip pickupSound; // Buraya ses dosyasýný sürükleyip býrakacaksýn
+    [Header("Ses AyarlarÄ±")]
+    public AudioClip pickupSound; // Buraya ses dosyasÄ±nÄ± sÃ¼rÃ¼kleyip bÄ±rakacaksÄ±n
 
     private static GameObject pressEPanel;
     private Color originalColor;
@@ -68,10 +68,10 @@ public class CollectibleItem : MonoBehaviour
                 return;
             }
 
-            // --- SES ÇALMA (YENÝ) ---
+            // --- SES Ã‡ALMA (YENÄ°) ---
             if (pickupSound != null)
             {
-                // Sesi oyuncunun olduðu pozisyonda çalar
+                // Sesi oyuncunun olduÄŸu pozisyonda Ã§alar
                 AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             }
 
@@ -93,7 +93,7 @@ public class CollectibleItem : MonoBehaviour
         CleanupAndDestroy();
     }
 
-    // ... (Geri kalan Cleanup, OnDestroy, GetClosestItem vb. ayný kalýyor)
+    // ... (Geri kalan Cleanup, OnDestroy, GetClosestItem vb. aynÄ± kalÄ±yor)
     private void CleanupAndDestroy()
     {
         if (itemsInRange.Contains(this)) itemsInRange.Remove(this);

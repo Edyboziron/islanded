@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
@@ -30,7 +30,7 @@ public class ButtonInfoHandler : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         myButton = GetComponent<Button>();
 
-        // AudioSource kontrolü: Yoksa otomatik ekler
+        // AudioSource kontrolÃ¼: Yoksa otomatik ekler
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -55,7 +55,7 @@ public class ButtonInfoHandler : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (infoPanel != null) infoPanel.SetActive(false);
     }
 
-    // --- BUTONA TIKLANDIÐINDA ÇALIÞIR ---
+    // --- BUTONA TIKLANDIÄžINDA Ã‡ALIÅžIR ---
     public void OnPointerClick(PointerEventData eventData)
     {
         // Buton etkilesime aciksa ve ses atanmissa cal

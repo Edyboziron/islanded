@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class SurfaceScatterSpawner : MonoBehaviour
 {
-    [Header("Hedef Yüzey Ayarlarý")]
+    [Header("Hedef YÃ¼zey AyarlarÄ±")]
     public bool useTagSearch = false;
     public string surfaceTag = "Untagged";
     public Collider targetSurface;
@@ -12,34 +12,34 @@ public class SurfaceScatterSpawner : MonoBehaviour
     [Header("Spawn Edilecek Obje")]
     public GameObject prefabToSpawn;
 
-    [Header("Daðýtým Ayarlarý")]
-    [Tooltip("Ýþaretliyse her yüzeyde sadece 1 adet spawn yapýlýr.")]
+    [Header("DaÄŸÄ±tÄ±m AyarlarÄ±")]
+    [Tooltip("Ä°ÅŸaretliyse her yÃ¼zeyde sadece 1 adet spawn yapÄ±lÄ±r.")]
     public bool spawnExactlyOnePerSurface = false;
-    [Tooltip("Kaç deneme yapýlacaðý.")]
+    [Tooltip("KaÃ§ deneme yapÄ±lacaÄŸÄ±.")]
     public int attemptCount = 200;
 
     [Range(0f, 100f)] public float spawnChance = 60f;
     [Range(0f, 90f)] public float maxSlopeAngle = 45f;
 
-    [Header("Boyut (Scale) Ayarlarý")]
+    [Header("Boyut (Scale) AyarlarÄ±")]
     public float minScaleMultiplier = 0.8f;
     public float maxScaleMultiplier = 1.2f;
 
-    [Header("Yerleþim Ayarlarý")]
+    [Header("YerleÅŸim AyarlarÄ±")]
     public float embedDepth = 0.1f;
     public bool alignYAxisUp = true;
 
-    [Header("Optimizasyon & Hiyerarþi")]
+    [Header("Optimizasyon & HiyerarÅŸi")]
     public bool isLowPriority = false;
     public float spawnDelay = 0.2f;
 
-    // Oluþturulan objeleri takip etmek için liste
+    // OluÅŸturulan objeleri takip etmek iÃ§in liste
     private List<GameObject> spawnedObjects = new List<GameObject>();
 
-    // --- KRÝTÝK DÜZELTME: OYUN BAÞLADIÐINDA ÇALIÞTIR ---
+    // --- KRÄ°TÄ°K DÃœZELTME: OYUN BAÅžLADIÄžINDA Ã‡ALIÅžTIR ---
     void Start()
     {
-        // Unity'nin tag'leri ve collider'larý tam tanýmasý için 1 kare bekleyip öyle baþlar
+        // Unity'nin tag'leri ve collider'larÄ± tam tanÄ±masÄ± iÃ§in 1 kare bekleyip Ã¶yle baÅŸlar
         StartCoroutine(InitialSpawnRoutine());
     }
 
@@ -49,17 +49,17 @@ public class SurfaceScatterSpawner : MonoBehaviour
         RegenerateIsland();
     }
 
-    // --- DIÞARIDAN (YATAKTAN) ÇAÐRILACAK FONKSÝYON ---
+    // --- DIÅžARIDAN (YATAKTAN) Ã‡AÄžRILACAK FONKSÄ°YON ---
     public void RegenerateIsland()
     {
-        StopAllCoroutines(); // Hali hazýrda çalýþan bir spawn varsa durdur
+        StopAllCoroutines(); // Hali hazÄ±rda Ã§alÄ±ÅŸan bir spawn varsa durdur
         ClearOldObjects();   // Eskileri sil
         StartCoroutine(SpawnRoutine()); // Yenileri yarat
     }
 
     private void ClearOldObjects()
     {
-        // Listedeki tüm objeleri yok et
+        // Listedeki tÃ¼m objeleri yok et
         for (int i = spawnedObjects.Count - 1; i >= 0; i--)
         {
             if (spawnedObjects[i] != null)
@@ -79,7 +79,7 @@ public class SurfaceScatterSpawner : MonoBehaviour
 
         List<Collider> targetColliders = new List<Collider>();
 
-        // Yüzeyleri bul
+        // YÃ¼zeyleri bul
         if (useTagSearch)
         {
             GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(surfaceTag);
@@ -96,11 +96,11 @@ public class SurfaceScatterSpawner : MonoBehaviour
 
         if (targetColliders.Count == 0)
         {
-            Debug.LogWarning(gameObject.name + ": Hedef yüzey bulunamadý!");
+            Debug.LogWarning(gameObject.name + ": Hedef yÃ¼zey bulunamadÄ±!");
             yield break;
         }
 
-        // Spawn iþlemini baþlat
+        // Spawn iÅŸlemini baÅŸlat
         foreach (Collider currentSurface in targetColliders)
         {
             Bounds bounds = currentSurface.bounds;
@@ -113,14 +113,14 @@ public class SurfaceScatterSpawner : MonoBehaviour
                     float randomX = Random.Range(bounds.min.x, bounds.max.x);
                     float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
-                    // Yüzeyin üzerinden aþaðý doðru ýþýn (ray) at
+                    // YÃ¼zeyin Ã¼zerinden aÅŸaÄŸÄ± doÄŸru Ä±ÅŸÄ±n (ray) at
                     Vector3 rayStart = new Vector3(randomX, bounds.max.y + 5f, randomZ);
                     Ray ray = new Ray(rayStart, Vector3.down);
                     RaycastHit hit;
 
                     if (currentSurface.Raycast(ray, out hit, bounds.size.y + 10f))
                     {
-                        // Eðim kontrolü
+                        // EÄŸim kontrolÃ¼
                         if (Vector3.Angle(Vector3.up, hit.normal) <= maxSlopeAngle)
                         {
                             // Rotasyon hesaplama
@@ -138,10 +138,10 @@ public class SurfaceScatterSpawner : MonoBehaviour
                             Vector3 pos = hit.point - (hit.normal * embedDepth);
                             GameObject spawnedObj = Instantiate(prefabToSpawn, pos, finalRotation);
 
-                            // Listeye ekle (temizlik için)
+                            // Listeye ekle (temizlik iÃ§in)
                             spawnedObjects.Add(spawnedObj);
 
-                            // Boyutlandýrma
+                            // BoyutlandÄ±rma
                             float randomScale = Random.Range(minScaleMultiplier, maxScaleMultiplier);
                             spawnedObj.transform.localScale = prefabToSpawn.transform.localScale * randomScale;
 
@@ -150,9 +150,9 @@ public class SurfaceScatterSpawner : MonoBehaviour
                     }
                 }
             }
-            // Her yüzey iþleminden sonra bir kare bekle (FPS düþüþünü engeller)
+            // Her yÃ¼zey iÅŸleminden sonra bir kare bekle (FPS dÃ¼ÅŸÃ¼ÅŸÃ¼nÃ¼ engeller)
             yield return null;
         }
-        Debug.Log(gameObject.name + ": Ada objeleri baþarýyla yerleþtirildi.");
+        Debug.Log(gameObject.name + ": Ada objeleri baÅŸarÄ±yla yerleÅŸtirildi.");
     }
 }

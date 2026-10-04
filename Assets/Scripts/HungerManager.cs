@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class HungerManager : MonoBehaviour
 {
     public static HungerManager Instance;
 
-    [Header("Görsel Referanslar")]
-    public GameObject mataraVisual;    // Beldeki su matarasý
-    public GameObject yemekKutusuVisual; // Yanýndaki yemek çantasý
+    [Header("GÃ¶rsel Referanslar")]
+    public GameObject mataraVisual;    // Beldeki su matarasÄ±
+    public GameObject yemekKutusuVisual; // YanÄ±ndaki yemek Ã§antasÄ±
 
-    [Header("Aþçý Power-up Durumlarý")]
+    [Header("AÅŸÃ§Ä± Power-up DurumlarÄ±")]
     public bool level1_ToklukHissi = false;
     public bool level2_BesleyiciOgun = false;
 
-    [Header("Buton Referanslarý")]
+    [Header("Buton ReferanslarÄ±")]
     public Button toklukButonu;
     public Button besleyiciButonu;
 
@@ -35,7 +35,7 @@ public class HungerManager : MonoBehaviour
         {
             level1_ToklukHissi = true;
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (mataraVisual != null) mataraVisual.SetActive(true);
 
             if (toklukButonu != null) toklukButonu.interactable = false;
@@ -49,7 +49,7 @@ public class HungerManager : MonoBehaviour
         {
             level2_BesleyiciOgun = true;
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (yemekKutusuVisual != null) yemekKutusuVisual.SetActive(true);
 
             if (besleyiciButonu != null) besleyiciButonu.interactable = false;

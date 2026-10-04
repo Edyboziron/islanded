@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class WaterDamage : MonoBehaviour
 {
@@ -8,53 +8,53 @@ public class WaterDamage : MonoBehaviour
     private bool isPlayerInWater = false;
     private Transform playerTransform;
 
-    // Oyuncu suya girdiðinde
+    // Oyuncu suya girdiÄŸinde
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInWater = true;
-            playerTransform = other.transform; // Oyuncunun yerini aklýmýzda tutuyoruz
-            Debug.Log("<color=blue>Suya girildi!</color> Can azalýyor...");
+            playerTransform = other.transform; // Oyuncunun yerini aklÄ±mÄ±zda tutuyoruz
+            Debug.Log("<color=blue>Suya girildi!</color> Can azalÄ±yor...");
         }
     }
 
-    // Oyuncu sudan yürüyerek çýktýðýnda
+    // Oyuncu sudan yÃ¼rÃ¼yerek Ã§Ä±ktÄ±ÄŸÄ±nda
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInWater = false;
-            Debug.Log("<color=blue>Sudan çýkýldý!</color> Hasar durdu.");
+            Debug.Log("<color=blue>Sudan Ã§Ä±kÄ±ldÄ±!</color> Hasar durdu.");
         }
     }
 
-    // Her saniye hasar kontrolü
+    // Her saniye hasar kontrolÃ¼
     private void Update()
     {
         if (isPlayerInWater)
         {
-            // --- IÞINLANMA BUG'I ÇÖZÜMÜ ---
-            // Eðer oyuncu gemiye ýþýnlandýysa Unity OnTriggerExit'i unutur.
-            // Biz manuel olarak oyuncunun gemiye gidip gitmediðini kontrol ediyoruz.
+            // --- IÅžINLANMA BUG'I Ã‡Ã–ZÃœMÃœ ---
+            // EÄŸer oyuncu gemiye Ä±ÅŸÄ±nlandÄ±ysa Unity OnTriggerExit'i unutur.
+            // Biz manuel olarak oyuncunun gemiye gidip gitmediÄŸini kontrol ediyoruz.
             if (playerTransform != null && SurvivalManager.Instance != null)
             {
                 if (SurvivalManager.Instance.largeShipBoardingTarget != null)
                 {
-                    // Oyuncunun gemi ýþýnlanma noktasýna olan uzaklýðýna bakýyoruz
+                    // Oyuncunun gemi Ä±ÅŸÄ±nlanma noktasÄ±na olan uzaklÄ±ÄŸÄ±na bakÄ±yoruz
                     float distToShip = Vector3.Distance(playerTransform.position, SurvivalManager.Instance.largeShipBoardingTarget.position);
 
-                    // Eðer oyuncu gemiye (ýþýnlanma noktasýna) çok yakýnsa, kesinlikle sudan çýkmýþtýr.
+                    // EÄŸer oyuncu gemiye (Ä±ÅŸÄ±nlanma noktasÄ±na) Ã§ok yakÄ±nsa, kesinlikle sudan Ã§Ä±kmÄ±ÅŸtÄ±r.
                     if (distToShip < 20f)
                     {
                         isPlayerInWater = false;
-                        Debug.Log("<color=yellow>Iþýnlanma Tespit Edildi:</color> Su hasarý zorla durduruldu.");
-                        return; // Hasar vermeden döngüden çýk
+                        Debug.Log("<color=yellow>IÅŸÄ±nlanma Tespit Edildi:</color> Su hasarÄ± zorla durduruldu.");
+                        return; // Hasar vermeden dÃ¶ngÃ¼den Ã§Ä±k
                     }
                 }
             }
 
-            // Eðer hala sudaysa hasar vermeye devam et
+            // EÄŸer hala sudaysa hasar vermeye devam et
             if (SurvivalManager.Instance != null)
             {
                 SurvivalManager.Instance.TakeDamage(saniyeBasiHasar * Time.deltaTime);

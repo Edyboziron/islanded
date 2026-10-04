@@ -1,29 +1,29 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 public class PatrolAI : MonoBehaviour
 {
-    [Header("Devriye Ayarları")]
-    [Tooltip("Karakterin sırayla gideceği noktalar.")]
+    [Header("Devriye AyarlarÄ±")]
+    [Tooltip("Karakterin sÄ±rayla gideceÄŸi noktalar.")]
     public Transform[] waypoints;
 
-    [Tooltip("Karakterin yürüme hızı.")]
+    [Tooltip("Karakterin yÃ¼rÃ¼me hÄ±zÄ±.")]
     public float moveSpeed = 3f;
 
-    [Tooltip("Karakterin kendi ekseninde dönüş hızı (Örn: 300).")]
+    [Tooltip("Karakterin kendi ekseninde dÃ¶nÃ¼ÅŸ hÄ±zÄ± (Ã–rn: 300).")]
     public float turnSpeed = 300f;
 
-    [Header("Bekleme ve Rastgelelik Ayarları")]
-    [Tooltip("Noktaya ulaştığında bekleme kararı alırsa kaç saniye bekleyecek?")]
+    [Header("Bekleme ve Rastgelelik AyarlarÄ±")]
+    [Tooltip("Noktaya ulaÅŸtÄ±ÄŸÄ±nda bekleme kararÄ± alÄ±rsa kaÃ§ saniye bekleyecek?")]
     public float waitTimeAtWaypoint = 2f;
 
-    [Tooltip("Karakterin bir noktaya ulaştığında bekleme yapma ihtimali (%0 hiç beklemez, %100 her noktada bekler).")]
+    [Tooltip("Karakterin bir noktaya ulaÅŸtÄ±ÄŸÄ±nda bekleme yapma ihtimali (%0 hiÃ§ beklemez, %100 her noktada bekler).")]
     [Range(0f, 100f)]
     public float waitChance = 50f;
 
-    [Header("Animasyon Ayarları")]
-    [Tooltip("Animator içindeki yürüme parametresinin (Bool) tam adı.")]
+    [Header("Animasyon AyarlarÄ±")]
+    [Tooltip("Animator iÃ§indeki yÃ¼rÃ¼me parametresinin (Bool) tam adÄ±.")]
     public string isWalkingParam = "IsWalking";
 
     private Animator animator;
@@ -36,13 +36,13 @@ public class PatrolAI : MonoBehaviour
 
         if (waypoints.Length == 0)
         {
-            Debug.LogWarning("PatrolAI: Waypoint dizisi boş!");
+            Debug.LogWarning("PatrolAI: Waypoint dizisi boÅŸ!");
         }
     }
 
     void Update()
     {
-        // Eğer waypoint yoksa veya bekleme durumundaysa hareket kodunu çalıştırma
+        // EÄŸer waypoint yoksa veya bekleme durumundaysa hareket kodunu Ã§alÄ±ÅŸtÄ±rma
         if (waypoints.Length == 0 || isWaiting) return;
 
         MoveTowardsTarget();
@@ -59,31 +59,31 @@ public class PatrolAI : MonoBehaviour
             // Hedef rotasyonu hesapla
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            // Şu anki açımız ile hedefin açısı arasındaki farkı ölç
+            // Åu anki aÃ§Ä±mÄ±z ile hedefin aÃ§Ä±sÄ± arasÄ±ndaki farkÄ± Ã¶lÃ§
             float angleToTarget = Quaternion.Angle(transform.rotation, targetRotation);
 
-            // 1. AŞAMA: Eğer hedefe tam dönmemişsek (örneğin 5 dereceden fazla fark varsa) SADECE DÖN
+            // 1. AÅAMA: EÄŸer hedefe tam dÃ¶nmemiÅŸsek (Ã¶rneÄŸin 5 dereceden fazla fark varsa) SADECE DÃ–N
             if (angleToTarget > 5f)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
 
-                // Sadece döndüğü için yürüme animasyonunu durdur (Idle'da kalarak dönsün)
+                // Sadece dÃ¶ndÃ¼ÄŸÃ¼ iÃ§in yÃ¼rÃ¼me animasyonunu durdur (Idle'da kalarak dÃ¶nsÃ¼n)
                 animator.SetBool(isWalkingParam, false);
 
-                // Return diyerek aşağıdaki yürüme kodunun çalışmasını engelliyoruz
+                // Return diyerek aÅŸaÄŸÄ±daki yÃ¼rÃ¼me kodunun Ã§alÄ±ÅŸmasÄ±nÄ± engelliyoruz
                 return;
             }
         }
 
-        // --- 2. AŞAMA: BURADAN AŞAĞISI SADECE KARAKTER YÜZÜNÜ HEDEFE DÖNDÜYSE ÇALIŞIR ---
+        // --- 2. AÅAMA: BURADAN AÅAÄISI SADECE KARAKTER YÃœZÃœNÃœ HEDEFE DÃ–NDÃœYSE Ã‡ALIÅIR ---
 
-        // Hedefe Doğru İlerleme
+        // Hedefe DoÄŸru Ä°lerleme
         transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
 
-        // Karakter adım atıyor, yürüme animasyonunu tetikle
+        // Karakter adÄ±m atÄ±yor, yÃ¼rÃ¼me animasyonunu tetikle
         animator.SetBool(isWalkingParam, true);
 
-        // Hedefe Ulaşıldı mı Kontrolü
+        // Hedefe UlaÅŸÄ±ldÄ± mÄ± KontrolÃ¼
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             float randomValue = Random.Range(0f, 100f);

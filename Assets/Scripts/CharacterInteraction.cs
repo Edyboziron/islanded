@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using StarterAssets;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    [Header("Etkileþim Ayarlarý")]
+    [Header("EtkileÅŸim AyarlarÄ±")]
     public float interactionRange = 3f;
     public GameObject characterUIPanel;
 

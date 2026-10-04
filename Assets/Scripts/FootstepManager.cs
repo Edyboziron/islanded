@@ -1,13 +1,13 @@
-using UnityEngine;
-using StarterAssets; // StarterAssets paketini kullanýyoruz
+ï»¿using UnityEngine;
+using StarterAssets; // StarterAssets paketini kullanÄ±yoruz
 
 public class FootstepManager : MonoBehaviour
 {
     [Header("Ses Ayarlari")]
     public AudioSource audioSource;
     public AudioClip[] footstepSounds; // Farkli adim sesleri (cesitlilik iyidir)
-    public float stepRate = 0.5f;      // Adim atma sýklýgý
-    public float sprintStepRate = 0.3f; // Kosarken adim sýklýgý
+    public float stepRate = 0.5f;      // Adim atma sÄ±klÄ±gÄ±
+    public float sprintStepRate = 0.3f; // Kosarken adim sÄ±klÄ±gÄ±
 
     private ThirdPersonController _controller;
     private CharacterController _characterController;
@@ -34,7 +34,7 @@ public class FootstepManager : MonoBehaviour
         // StarterAssets'in kendi Grounded degiskenini ve CharacterController'in hizini kullaniyoruz
         if (_controller.Grounded && _characterController.velocity.magnitude > 0.1f)
         {
-            // Hareket hizina gore adim sýklýgýný belirle (Kosuyor mu?)
+            // Hareket hizina gore adim sÄ±klÄ±gÄ±nÄ± belirle (Kosuyor mu?)
             float currentRate = _controller.SprintSpeed > _controller.MoveSpeed && _characterController.velocity.magnitude > _controller.MoveSpeed + 1f
                                 ? sprintStepRate : stepRate;
 

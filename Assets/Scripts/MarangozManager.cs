@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class MarangozManager : MonoBehaviour
 {
     public static MarangozManager Instance;
 
-    [Header("Görsel Referanslar")]
-    public GameObject govdeTahtalariVisual; // Geminin yanýndaki ekstra tahtalar
-    public GameObject pruvaZirhiVisual;     // Geminin önündeki metal zýrh
+    [Header("GÃ¶rsel Referanslar")]
+    public GameObject govdeTahtalariVisual; // Geminin yanÄ±ndaki ekstra tahtalar
+    public GameObject pruvaZirhiVisual;     // Geminin Ã¶nÃ¼ndeki metal zÄ±rh
 
-    [Header("Power-up Durumlarý")]
+    [Header("Power-up DurumlarÄ±")]
     public bool level1_SaglamGovde = false;
     public bool level2_ZirhliPruva = false;
 
-    [Header("Buton Referanslarý")]
+    [Header("Buton ReferanslarÄ±")]
     public Button saglamGovdeButonu;
     public Button zirhliPruvaButonu;
 
@@ -35,7 +35,7 @@ public class MarangozManager : MonoBehaviour
             level1_SaglamGovde = true;
             if (ShipManager.Instance != null) ShipManager.Instance.leakFrequency = 4;
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (govdeTahtalariVisual != null) govdeTahtalariVisual.SetActive(true);
 
             if (saglamGovdeButonu != null) saglamGovdeButonu.interactable = false;
@@ -53,7 +53,7 @@ public class MarangozManager : MonoBehaviour
                 ShipManager.Instance.UpdateShipUI();
             }
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (pruvaZirhiVisual != null) pruvaZirhiVisual.SetActive(true);
 
             if (zirhliPruvaButonu != null) zirhliPruvaButonu.interactable = false;

@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class ProximityPanel : MonoBehaviour
 {
-    [Header("OTOMATÝK BULMA AYARLARI")]
-    [Tooltip("Hiyerarþideki açýlacak panelin ADINI buraya yaz (Örn: MarangozPanel)")]
+    [Header("OTOMATÄ°K BULMA AYARLARI")]
+    [Tooltip("HiyerarÅŸideki aÃ§Ä±lacak panelin ADINI buraya yaz (Ã–rn: MarangozPanel)")]
     public string targetPanelName;
 
     [Header("MESAFE AYARI")]
     public float distanceToOpen = 3f;
 
-    // Statik yaparak tüm eþyalarýn ayný "E" panelini kullanmasýný saðlýyoruz
+    // Statik yaparak tÃ¼m eÅŸyalarÄ±n aynÄ± "E" panelini kullanmasÄ±nÄ± saÄŸlÄ±yoruz
     private static GameObject globalPressEPanel;
     private GameObject specificPanel;
     private Transform playerTransform;
@@ -17,21 +17,21 @@ public class ProximityPanel : MonoBehaviour
 
     void Start()
     {
-        // 1. "E'ye Bas" panelini isminden bul (Sürükleme gerektirmez)
+        // 1. "E'ye Bas" panelini isminden bul (SÃ¼rÃ¼kleme gerektirmez)
         if (globalPressEPanel == null)
             globalPressEPanel = GameObject.Find("PressEPanel");
 
-        // 2. Açýlacak olan ana paneli isminden bul
+        // 2. AÃ§Ä±lacak olan ana paneli isminden bul
         if (!string.IsNullOrEmpty(targetPanelName))
             specificPanel = GameObject.Find(targetPanelName);
 
-        // Baþlangýçta paneli gizle
+        // BaÅŸlangÄ±Ã§ta paneli gizle
         if (specificPanel != null) specificPanel.SetActive(false);
     }
 
     void Update()
     {
-        // Karakteri bulana kadar aramaya devam et (Build hatasý korumasý)
+        // Karakteri bulana kadar aramaya devam et (Build hatasÄ± korumasÄ±)
         if (playerTransform == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -46,7 +46,7 @@ public class ProximityPanel : MonoBehaviour
             if (!isPanelOpen)
             {
                 isPanelOpen = true;
-                // Yaklaþýnca hem 'E' yazýsýný hem ana paneli açýyoruz
+                // YaklaÅŸÄ±nca hem 'E' yazÄ±sÄ±nÄ± hem ana paneli aÃ§Ä±yoruz
                 if (specificPanel != null) specificPanel.SetActive(true);
                 if (globalPressEPanel != null) globalPressEPanel.SetActive(true);
             }
@@ -56,7 +56,7 @@ public class ProximityPanel : MonoBehaviour
             if (isPanelOpen)
             {
                 isPanelOpen = false;
-                // Uzaklaþýnca her þeyi kapatýyoruz
+                // UzaklaÅŸÄ±nca her ÅŸeyi kapatÄ±yoruz
                 if (specificPanel != null) specificPanel.SetActive(false);
                 if (globalPressEPanel != null && globalPressEPanel.activeSelf)
                     globalPressEPanel.SetActive(false);

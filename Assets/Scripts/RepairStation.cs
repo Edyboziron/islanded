@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 
 public class RepairStation : MonoBehaviour
 {
-    [Header("Tamir Ayarlarý")]
+    [Header("Tamir AyarlarÄ±")]
     public string itemName = "Tahta";
     public int requiredAmount = 2;
     private int currentAmount = 0;
     public float interactionRange = 3f;
 
-    [Tooltip("Eðer bu eþyanýn oyun baþýnda BOZUK baþlamasýný istiyorsan bu tiki iþaretle.")]
+    [Tooltip("EÄŸer bu eÅŸyanÄ±n oyun baÅŸÄ±nda BOZUK baÅŸlamasÄ±nÄ± istiyorsan bu tiki iÅŸaretle.")]
     public bool startBroken = false;
 
-    [Header("Görsel ve UI")]
+    [Header("GÃ¶rsel ve UI")]
     public TextMeshProUGUI statusText;
     public GameObject pressEPanel;
     public GameObject repairedObject;
@@ -24,7 +24,7 @@ public class RepairStation : MonoBehaviour
 
     void Start()
     {
-        FindPlayer(); // Ýlk aramayý yap
+        FindPlayer(); // Ä°lk aramayÄ± yap
 
         if (!startBroken)
         {
@@ -48,7 +48,7 @@ public class RepairStation : MonoBehaviour
 
     void Update()
     {
-        // --- ÇÖZÜM BURASI ---
+        // --- Ã‡Ã–ZÃœM BURASI ---
         if (playerTransform == null)
         {
             FindPlayer();
@@ -123,7 +123,7 @@ public class RepairStation : MonoBehaviour
 
         if (statusText != null)
         {
-            statusText.text = "TAMÝR EDÝLDÝ";
+            statusText.text = "TAMÄ°R EDÄ°LDÄ°";
         }
     }
 

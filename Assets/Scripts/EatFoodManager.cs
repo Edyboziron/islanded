@@ -1,27 +1,27 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EatFoodManager : MonoBehaviour
 {
-    [Header("Yemeklerin Verdiði Tokluk Deðerleri")]
+    [Header("Yemeklerin VerdiÄŸi Tokluk DeÄŸerleri")]
     public float mantarTokluk = 10f;
     public float bugdayTokluk = 20f;
     public float koyunTokluk = 40f;
 
-    // --- MANTAR BUTONU ÝÇÝN ---
+    // --- MANTAR BUTONU Ä°Ã‡Ä°N ---
     public void EatMantar()
     {
-        // 1. Envanterde Mantar var mý kontrol et ve 1 tane harca
+        // 1. Envanterde Mantar var mÄ± kontrol et ve 1 tane harca
         if (GlobalInventory.Instance != null && GlobalInventory.Instance.SpendItem("Mantar", 1))
         {
             float miktar = mantarTokluk;
 
-            // 2. Besleyici Öðün skilli açýksa %50 daha fazla doyursun
+            // 2. Besleyici Ã–ÄŸÃ¼n skilli aÃ§Ä±ksa %50 daha fazla doyursun
             if (HungerManager.Instance != null && HungerManager.Instance.level2_BesleyiciOgun)
             {
                 miktar *= 1.5f;
             }
 
-            // 3. Tokluðu artýr ve UI'ý güncelle
+            // 3. TokluÄŸu artÄ±r ve UI'Ä± gÃ¼ncelle
             SurvivalManager.Instance.AddTokluk(miktar);
             GlobalInventory.Instance.UpdateInventoryUI();
 
@@ -29,11 +29,11 @@ public class EatFoodManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("<color=red>HATA:</color> Çantanda hiç Mantar yok!");
+            Debug.Log("<color=red>HATA:</color> Ã‡antanda hiÃ§ Mantar yok!");
         }
     }
 
-    // --- BUÐDAY BUTONU ÝÇÝN ---
+    // --- BUÄžDAY BUTONU Ä°Ã‡Ä°N ---
     public void EatBugday()
     {
         if (GlobalInventory.Instance != null && GlobalInventory.Instance.SpendItem("Bugday", 1))
@@ -48,15 +48,15 @@ public class EatFoodManager : MonoBehaviour
             SurvivalManager.Instance.AddTokluk(miktar);
             GlobalInventory.Instance.UpdateInventoryUI();
 
-            Debug.Log("<color=green>Buðday yendi!</color> +" + miktar + " Tokluk eklendi.");
+            Debug.Log("<color=green>BuÄŸday yendi!</color> +" + miktar + " Tokluk eklendi.");
         }
         else
         {
-            Debug.Log("<color=red>HATA:</color> Çantanda hiç Buðday yok!");
+            Debug.Log("<color=red>HATA:</color> Ã‡antanda hiÃ§ BuÄŸday yok!");
         }
     }
 
-    // --- KOYUN BUTONU ÝÇÝN ---
+    // --- KOYUN BUTONU Ä°Ã‡Ä°N ---
     public void EatKoyun()
     {
         if (GlobalInventory.Instance != null && GlobalInventory.Instance.SpendItem("Koyun", 1))
@@ -75,7 +75,7 @@ public class EatFoodManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("<color=red>HATA:</color> Çantanda hiç Koyun yok!");
+            Debug.Log("<color=red>HATA:</color> Ã‡antanda hiÃ§ Koyun yok!");
         }
     }
 }

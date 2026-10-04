@@ -1,23 +1,23 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class KasifManager : MonoBehaviour
 {
     public static KasifManager Instance;
 
-    [Header("Görsel Referanslar")]
-    public GameObject gazMaskesiVisual; // Karakterin yüzündeki maske
-    public GameObject heybeVisual;      // Karakterin sýrtýndaki çanta
+    [Header("GÃ¶rsel Referanslar")]
+    public GameObject gazMaskesiVisual; // Karakterin yÃ¼zÃ¼ndeki maske
+    public GameObject heybeVisual;      // Karakterin sÄ±rtÄ±ndaki Ã§anta
 
-    [Header("Power-up Durumlarý (Kalýcý)")]
+    [Header("Power-up DurumlarÄ± (KalÄ±cÄ±)")]
     public bool level1_DerinNefes = false;
     public bool level2_GenisHeybe = false;
 
-    [Header("Skill Kartlarý (Nadir)")]
+    [Header("Skill KartlarÄ± (Nadir)")]
     public bool skill_ZamanBukucu = false;
     public bool skill_SonGaz = false;
 
-    [Header("Buton Referanslarý")]
+    [Header("Buton ReferanslarÄ±")]
     public Button derinNefesButonu;
     public Button genisHeybeButonu;
 
@@ -28,7 +28,7 @@ public class KasifManager : MonoBehaviour
 
     void Start()
     {
-        // Baþlangýçta görselleri kapatalým
+        // BaÅŸlangÄ±Ã§ta gÃ¶rselleri kapatalÄ±m
         if (gazMaskesiVisual != null) gazMaskesiVisual.SetActive(false);
         if (heybeVisual != null) heybeVisual.SetActive(false);
     }
@@ -38,10 +38,10 @@ public class KasifManager : MonoBehaviour
         if (GlobalInventory.Instance.SpendItem("Sarmasik", 10))
         {
             level1_DerinNefes = true;
-            SurvivalManager sm = FindObjectOfType<SurvivalManager>();
+            SurvivalManager sm = FindFirstObjectByType<SurvivalManager>();
             if (sm != null) sm.maxTime += 15f;
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (gazMaskesiVisual != null) gazMaskesiVisual.SetActive(true);
 
             if (derinNefesButonu != null) derinNefesButonu.interactable = false;
@@ -54,7 +54,7 @@ public class KasifManager : MonoBehaviour
         {
             level2_GenisHeybe = true;
 
-            // GÖRSELÝ AKTÝF ET
+            // GÃ–RSELÄ° AKTÄ°F ET
             if (heybeVisual != null) heybeVisual.SetActive(true);
 
             if (genisHeybeButonu != null) genisHeybeButonu.interactable = false;

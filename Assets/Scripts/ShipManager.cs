@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class ShipManager : MonoBehaviour
 {
     public static ShipManager Instance;
 
-    [Header("Gemi Ýstatistikleri")]
+    [Header("Gemi Ä°statistikleri")]
     public int currentLeaks = 0;
-    public int maxLeaks = 3; // Baþlangýçta 3, zýrh alýnýnca 4 olacak
+    public int maxLeaks = 3; // BaÅŸlangÄ±Ã§ta 3, zÄ±rh alÄ±nÄ±nca 4 olacak
     public int leakFrequency = 3;
     private int daysPassed = 0;
 
@@ -16,14 +16,14 @@ public class ShipManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton yapýsý: Eðer sahnede baþka bir ShipManager varsa yenisini siler.
+        // Singleton yapÄ±sÄ±: EÄŸer sahnede baÅŸka bir ShipManager varsa yenisini siler.
         if (Instance == null) Instance = this;
         else if (Instance != this) { Destroy(gameObject); return; }
     }
 
     void OnDestroy()
     {
-        // Obje silinirse referansý temizle ki MissingReference hatasý vermesin.
+        // Obje silinirse referansÄ± temizle ki MissingReference hatasÄ± vermesin.
         if (Instance == this) Instance = null;
     }
 
@@ -46,12 +46,12 @@ public class ShipManager : MonoBehaviour
     {
         currentLeaks++;
 
-        // --- ÖLÜM (BATIÞ) KONTROLÜ BURADA ---
+        // --- Ã–LÃœM (BATIÅž) KONTROLÃœ BURADA ---
         if (currentLeaks >= maxLeaks)
         {
-            Debug.LogError("Gemi Battý! OYUN BÝTTÝ.");
+            Debug.LogError("Gemi BattÄ±! OYUN BÄ°TTÄ°.");
 
-            // SurvivalManager'daki ölüm panelini tetikle
+            // SurvivalManager'daki Ã¶lÃ¼m panelini tetikle
             if (SurvivalManager.Instance != null)
             {
                 SurvivalManager.Instance.TriggerGameOver();

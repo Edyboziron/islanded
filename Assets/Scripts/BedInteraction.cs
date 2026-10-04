@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using StarterAssets;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -25,13 +25,13 @@ public class BedInteraction : MonoBehaviour
 
     void Start()
     {
-        FindPlayer(); // Ýlk baþta bir aramayý dene
+        FindPlayer(); // Ä°lk baÅŸta bir aramayÄ± dene
     }
 
     void Update()
     {
-        // --- ÇÖZÜM BURASI ---
-        // Eðer Player'ý hala bulamadýysa aramaya devam et, pes etme!
+        // --- Ã‡Ã–ZÃœM BURASI ---
+        // EÄŸer Player'Ä± hala bulamadÄ±ysa aramaya devam et, pes etme!
         if (playerTransform == null)
         {
             FindPlayer();
@@ -48,7 +48,7 @@ public class BedInteraction : MonoBehaviour
         else if (isPlayerInRange) OnExitRange();
     }
 
-    // Arama iþlemini tek bir yere topladýk
+    // Arama iÅŸlemini tek bir yere topladÄ±k
     void FindPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -61,7 +61,7 @@ public class BedInteraction : MonoBehaviour
 
     void SleepAndGoToIsland()
     {
-        SurfaceScatterSpawner[] spawners = FindObjectsOfType<SurfaceScatterSpawner>();
+        SurfaceScatterSpawner[] spawners = FindObjectsByType<SurfaceScatterSpawner>(FindObjectsSortMode.None);
         foreach (var spawner in spawners) { spawner.RegenerateIsland(); }
 
         if (GlobalInventory.Instance != null)
@@ -104,7 +104,7 @@ public class BedInteraction : MonoBehaviour
 
     void BreakRandomRepairedObject()
     {
-        RepairStation[] allStations = FindObjectsOfType<RepairStation>(true);
+        RepairStation[] allStations = FindObjectsByType<RepairStation>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         List<RepairStation> repairedStations = new List<RepairStation>();
 
         foreach (var station in allStations)

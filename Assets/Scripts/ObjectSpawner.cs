@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 public class ObjectSpawner : MonoBehaviour
@@ -7,7 +7,7 @@ public class ObjectSpawner : MonoBehaviour
     public List<GameObject> prefabsToSpawn;
     public int spawnCount = 10;
 
-    [Header("Menzil Ayarlarý (Min - Max)")]
+    [Header("Menzil AyarlarÄ± (Min - Max)")]
     public Vector3 minSpawnRange;
     public Vector3 maxSpawnRange;
 
@@ -20,7 +20,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (prefabsToSpawn == null || prefabsToSpawn.Count == 0)
         {
-            Debug.LogWarning("Spawn listesi boþ! Prefablarý atamayý unutma.");
+            Debug.LogWarning("Spawn listesi boÅŸ! PrefablarÄ± atamayÄ± unutma.");
             return;
         }
 
@@ -29,7 +29,7 @@ public class ObjectSpawner : MonoBehaviour
             int randomIndex = Random.Range(0, prefabsToSpawn.Count);
             GameObject prefabToInstantiate = prefabsToSpawn[randomIndex];
 
-            // x, y, z küçük harf olmalý
+            // x, y, z kÃ¼Ã§Ã¼k harf olmalÄ±
             float randomX = Random.Range(minSpawnRange.x, maxSpawnRange.x);
             float randomY = Random.Range(minSpawnRange.y, maxSpawnRange.y);
             float randomZ = Random.Range(minSpawnRange.z, maxSpawnRange.z);

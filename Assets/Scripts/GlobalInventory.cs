@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class GlobalInventory : MonoBehaviour
 {
     public static GlobalInventory Instance;
 
-    [Header("Gida Malzemeleri (Kalýcý Kasa)")]
+    [Header("Gida Malzemeleri (KalÄ±cÄ± Kasa)")]
     public int mantar = 0;
     public int bugday = 0;
     public int koyun = 0;
 
-    [Header("Tamir Malzemeleri (Kalýcý Kasa)")]
+    [Header("Tamir Malzemeleri (KalÄ±cÄ± Kasa)")]
     public int tahta = 0;
     public int civi = 0;
     public int sarmasik = 0;
 
-    // --- YENÝ: Sadece adadaki yükü takip eder ---
+    // --- YENÄ°: Sadece adadaki yÃ¼kÃ¼ takip eder ---
     [HideInInspector] public int currentTripCount = 0;
 
     [Header("UI Referanslari (Hiyerarsiden Surukle)")]
@@ -40,7 +40,7 @@ public class GlobalInventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    // --- GÜNCELLENDÝ: Esyalar silinmez, sadece canta dolulugu (0/5) sýfýrlanýr ---
+    // --- GÃœNCELLENDÄ°: Esyalar silinmez, sadece canta dolulugu (0/5) sÄ±fÄ±rlanÄ±r ---
     public void ResetTripCount()
     {
         currentTripCount = 0;
@@ -48,7 +48,7 @@ public class GlobalInventory : MonoBehaviour
         Debug.Log("<color=green>Envanter:</color> Ada yuku bosaltildi. Esyalarin hala kasanda!");
     }
 
-    // Ýhtiyacýn olursa her þeyi tamamen silmek için bu kalsýn
+    // Ä°htiyacÄ±n olursa her ÅŸeyi tamamen silmek iÃ§in bu kalsÄ±n
     public void ResetInventoryFull()
     {
         mantar = 0; bugday = 0; koyun = 0;
@@ -59,13 +59,13 @@ public class GlobalInventory : MonoBehaviour
 
     public int GetTotalItemCount()
     {
-        // Bu hala toplamý döndürür (Gerekirse kullanýrsýn)
+        // Bu hala toplamÄ± dÃ¶ndÃ¼rÃ¼r (Gerekirse kullanÄ±rsÄ±n)
         return mantar + bugday + koyun + tahta + civi + sarmasik;
     }
 
     public void UpdateInventoryUI()
     {
-        // Malzeme sayýlarýný göster (Kasadaki miktar)
+        // Malzeme sayÄ±larÄ±nÄ± gÃ¶ster (Kasadaki miktar)
         if (mantarText != null) mantarText.text = "Mantar: " + mantar;
         if (bugdayText != null) bugdayText.text = "Bugday: " + bugday;
         if (koyunText != null) koyunText.text = "Koyun: " + koyun;
@@ -78,7 +78,7 @@ public class GlobalInventory : MonoBehaviour
         {
             int max = (KasifManager.Instance != null && KasifManager.Instance.level2_GenisHeybe) ? 8 : 5;
 
-            // DÝKKAT: Artik kapasite yazýsý toplam eþyayý deðil, "currentTripCount"u gösteriyor!
+            // DÄ°KKAT: Artik kapasite yazÄ±sÄ± toplam eÅŸyayÄ± deÄŸil, "currentTripCount"u gÃ¶steriyor!
             kapasiteText.text = "Canta: " + currentTripCount + " / " + max;
             kapasiteText.color = (currentTripCount >= max) ? Color.red : Color.white;
         }
